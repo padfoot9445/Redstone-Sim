@@ -1,0 +1,12 @@
+/workspaces/Redstone-Sim/src/obj/Debug/net8.0/src.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/Redstone-Sim/src/obj/Debug/net8.0/src.AssemblyInfoInputs.cache
+/workspaces/Redstone-Sim/src/obj/Debug/net8.0/src.AssemblyInfo.cs
+/workspaces/Redstone-Sim/src/obj/Debug/net8.0/src.csproj.CoreCompileInputs.cache
+/workspaces/Redstone-Sim/src/obj/Debug/net8.0/src.sourcelink.json
+/workspaces/Redstone-Sim/src/bin/Debug/net8.0/src.deps.json
+/workspaces/Redstone-Sim/src/bin/Debug/net8.0/src.dll
+/workspaces/Redstone-Sim/src/bin/Debug/net8.0/src.pdb
+/workspaces/Redstone-Sim/src/obj/Debug/net8.0/src.dll
+/workspaces/Redstone-Sim/src/obj/Debug/net8.0/refint/src.dll
+/workspaces/Redstone-Sim/src/obj/Debug/net8.0/src.pdb
+/workspaces/Redstone-Sim/src/obj/Debug/net8.0/ref/src.dll
