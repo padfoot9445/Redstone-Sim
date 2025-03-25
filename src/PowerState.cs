@@ -11,4 +11,8 @@ public record struct PowerState(int Sizex, int Sizey)
         return CellState.None;
     }
     public CellState Access(Position pos) => Access(pos.X, pos.Y);
+    public override string ToString()
+    {
+        return string.Join("\n", Backing.SelectMany(CellState i => ))
+    }
 }

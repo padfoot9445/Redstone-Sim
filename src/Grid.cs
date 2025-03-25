@@ -51,4 +51,8 @@ public record class Grid(int Sizex, int Sizey)
     {
         var _ = compos.Select(x => x.Value).Select(x => x.HandlePower(GetInputsTo(x)));
     }
+    public override string ToString()
+    {
+        
+    }
 }

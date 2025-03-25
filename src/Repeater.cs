@@ -8,21 +8,16 @@ public record class Repeater(Position Position, Direction PointDirections, int D
     private int TicksSincePoweredOff = 0;
     private int PowerChangeState = 0; //-1 if powering off, 0 no change, 1 if powering on
     private bool PoweredOn = false;
-    private Direction InputDirection => (
-        PointDirections == Direction.West? Direction.East : (
-        PointDirections == Direction.East? Direction.West : (
-        PointDirections == Direction.North? Direction.South : (
-        PointDirections == Direction.South? Direction.North : 
-        throw new Exception($"Invalid input {PointDirections}")))));
-    private int InputMask => ((int)InputDirection << OffsetToHard) | (int)InputDirection;
-    private bool HasInput(CellState input) => (InputMask & (int)input) != 0;
+    private Direction InputDirection => PointDirections.Opposite();
+    private int ThisInputMask => InputMask(InputDirection);
+    private bool HasInput(CellState input) => (ThisInputMask & (int)input) != 0;
     public override CellState HandlePower(CellState input)
     {
         if(HandleChangeState()) { }
         else if(PoweredOn){ HandlePoweredOn(input); }
         else if(!PoweredOn){ HandlePoweredOff(input); }
         //poweredOn should be set correctly now
-        return (CellState)(((int)PointDirections) << OffsetToHard);
+        return (CellState)(((int)PointDirections) << OffsetToHard) | ;
     }
     private bool HandleChangeState()
     {
@@ -67,5 +62,9 @@ public record class Repeater(Position Position, Direction PointDirections, int D
             TicksSincePowerOn++;
             PowerChangeState = 1;
         }
+    }
+    private CellState GetPowered()
+    {
+        if(PoweredOn) return CellState.SelfIsPowered
     }
 }
