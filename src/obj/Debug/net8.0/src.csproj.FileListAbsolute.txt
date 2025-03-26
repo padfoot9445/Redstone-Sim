@@ -10,3 +10,6 @@
 /workspaces/Redstone-Sim/src/obj/Debug/net8.0/refint/src.dll
 /workspaces/Redstone-Sim/src/obj/Debug/net8.0/src.pdb
 /workspaces/Redstone-Sim/src/obj/Debug/net8.0/ref/src.dll
+/workspaces/Redstone-Sim/src/bin/Debug/net8.0/src
+/workspaces/Redstone-Sim/src/bin/Debug/net8.0/src.runtimeconfig.json
+/workspaces/Redstone-Sim/src/obj/Debug/net8.0/src.genruntimeconfig.cache

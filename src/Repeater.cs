@@ -17,7 +17,15 @@ public record class Repeater(Position Position, Direction PointDirections, int D
         else if(PoweredOn){ HandlePoweredOn(input); }
         else if(!PoweredOn){ HandlePoweredOff(input); }
         //poweredOn should be set correctly now
-        return (CellState)(((int)PointDirections) << OffsetToHard) | ;
+        return Output();
+    }
+    private CellState Output()
+    {
+        if(PoweredOn)
+        {
+            return (CellState)(((int)PointDirections) << OffsetToHard);
+        }
+        return CellState.None;
     }
     private bool HandleChangeState()
     {
@@ -62,9 +70,5 @@ public record class Repeater(Position Position, Direction PointDirections, int D
             TicksSincePowerOn++;
             PowerChangeState = 1;
         }
-    }
-    private CellState GetPowered()
-    {
-        if(PoweredOn) return CellState.SelfIsPowered
     }
 }

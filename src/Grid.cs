@@ -1,8 +1,8 @@
 namespace src;
 public record class Grid(int Sizex, int Sizey)
 {
-    public PowerState StablePowerState {get;}
-    private PowerState VolatilePowerState {get;}
+    public PowerState StablePowerState {get; private set; }
+    private PowerState VolatilePowerState { get; set; }
     private Dictionary<Position, BaseComponent> Components { get; } = new();
     private Dictionary<Position, SingleDust> Dusts { get; } = new();
     public void AttatchComponent(BaseComponent component)
@@ -42,6 +42,7 @@ public record class Grid(int Sizex, int Sizey)
     {
         HandleOnList(Components);
         UpdateDust(); UpdateDust();
+        (StablePowerState, VolatilePowerState) = (VolatilePowerState, StablePowerState);
     }
     public void UpdateDust()
     {
@@ -49,10 +50,15 @@ public record class Grid(int Sizex, int Sizey)
     }
     private void HandleOnList<TV>(Dictionary<Position, TV> compos) where TV: BaseComponent
     {
-        var _ = compos.Select(x => x.Value).Select(x => x.HandlePower(GetInputsTo(x)));
+        foreach(var i in compos)
+        {
+            VolatilePowerState.WriteTo(i.Key, i.Value.HandlePower(GetInputsTo(i.Key)));
+        }
+        //var _ = compos.Select(x => x.Value).Select(x => x.HandlePower(GetInputsTo(x)));
+        return;
     }
     public override string ToString()
     {
-        
+        return StablePowerState.ToString();
     }
 }
